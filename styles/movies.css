@@ -1,0 +1,98 @@
+
+nav{
+  background-color:#000000;
+  font-size:10px;
+  font-weight:bold;
+  padding:10px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-top:20px;
+  border-radius:16px;
+  }
+  
+  .navbar a{
+    margin-right:10px;
+    margin-left:10px;
+  }
+  
+  .navbar a:first-child{
+    font-size:12px;
+  }
+  
+ main{
+    background-color:white;
+    border-radius:16px;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:10px;
+    padding:10px
+  }
+  
+  table{
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0px 6px;
+    margin-bottom:18px;
+  }
+  
+  caption{
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:16px;
+  }
+  
+  
+  th{
+    font-size:10px;
+    font-weight:900;
+    height: 12px;
+    padding-left:10px;
+    padding-right:10px;
+  }
+  
+  td{
+    font-size:9px;
+    font-weight:bold;
+    text-align:center;
+    padding-left:10px;
+    padding-right:10px;
+    background-color: #d9d9d9;
+    height:24px;
+    width:25%;
+  }
+  
+  tr td:first-child{
+    border-radius: 10px 0 0 10px;
+  }
+  
+  tr td:nth-child(3), tr th:nth-child(3){
+    text-align:left;
+  }
+  
+  tr td:nth-child(5){
+    background-color:#C93333;
+    color:#ffffff;
+    width:40px;
+  }
+ 
+  .time{
+    background-color:#ffffff;
+    padding-left:8px;
+    padding-right:8px;
+    font-size:8px;
+    padding-top:2px;
+    padding-bottom:2px;
+  }
+
+  .time-sign{
+    background-color:#000000;
+    color:#ffffff;
+    font-size:6px;
+    font-weight:bold;
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-left:4px;
+    padding-right:4px;
+  }
+  
+  
