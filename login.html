@@ -15,21 +15,25 @@
   </header>
   <main>
     <section class="login">
-      <div>
+      <form action="home.html" method="post" id="login">
+      <!-- <div id="email"> -->
         <label for="email">Email</label>
-        <input type="text" placeholder="email">
-      </div>
-      <div>
+        <input id="emailInput" type="text" placeholder="email" required>
+      <!-- </div> -->
+      <!-- <div id="password"> -->
         <label for="password">Password</label>
-        <input class="placeholder" type="text" placeholder="password">
-      </div>
-      <a href="home.html" style="text-decoration:none">
-        <button class="button">Sign in</button>
-      </a>
-      
+        <input id="passwordInput" minlength="8" class="placeholder" type="text" placeholder="password" required>
+      <!-- </div> -->
+
+      <!-- <a href="home.html" style="text-decoration:none">
+        <button class="button" id="signInBtn">Sign in</button>
+      </a> -->
+
+      <button class="button" id="signInBtn" type="submit">Sign in</button>
+    </form>
     </section>
 
-    <section class="register">
+    <section class="register" id="register">
       <div>
         <label for="name">Name</label>
         <input type="text" placeholder="name">
@@ -57,8 +61,13 @@
       <a href="home.html" style="text-decoration:none">
         <button class="button">Register</button>
       </a>
-      
     </section>
+
+    <button id="show-register-form" >Register</button>
+
+    <!-- <a href="" style="text-decoration:none">
+      <button id="show-register-form" >Register</button>
+    </a> -->
 
   </main>
 <footer>
@@ -66,5 +75,6 @@
   <div class="footer-right">2022</div>
 
 </footer>
+<script src="scripts/login.js" type="text/javascript"></script>
 </body>
 </html>
