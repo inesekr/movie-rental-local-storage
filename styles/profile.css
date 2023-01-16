@@ -50,13 +50,13 @@ nav{
   }
 
   .profile-info{
-    margin-top:16px;
+    margin-top:0px;
     margin-left:12px;
     margin-right:20px;
     font-size:11px;
   }
 
-  .profile-info p{
+  .profile-info p .profile-p{
     margin:-1px;
     margin-top:4px;
   }
@@ -77,6 +77,10 @@ nav{
     font-size:9px;
     padding-top:2px;
     padding-bottom:2px;
+  }
+
+  #reset-password{
+    cursor:pointer;
   }
 
   

@@ -40,10 +40,9 @@ input{
   margin-left:20px;
 }
 
-.button{
+input.button{
   background-color: #363636;
   color: #ffffff;
-  
   width:80px;
   border-radius:50px;
   display: block;
@@ -52,13 +51,24 @@ input{
   font-size:10px;
   padding-top:2px;
   padding-bottom:2px;
-  
+}
+
+.button{
+  background-color: #363636;
+  color: #ffffff;
+  width:80px;
+  border-radius:50px;
+  display: block;
+  margin:0 auto;
+  text-decoration:none;
+  font-size:10px;
+  padding-top:2px;
+  padding-bottom:2px;
 }
 
 #show-register-form{
  background-color: #363636;
   color: #ffffff;
-  
   width:80px;
   border-radius:50px;
   display: block;

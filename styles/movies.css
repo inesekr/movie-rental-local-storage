@@ -10,12 +10,12 @@ nav{
   border-radius:16px;
   }
   
-  .navbar a{
+  nav a{
     margin-right:10px;
     margin-left:10px;
   }
   
-  .navbar a:first-child{
+  nav a:first-child{
     font-size:12px;
   }
   
@@ -84,7 +84,17 @@ nav{
     padding-bottom:2px;
   }
 
-  .time-sign{
+  .time-sign-minus{
+    background-color:#000000;
+    color:#ffffff;
+    font-size:6px;
+    font-weight:bold;
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-left:4px;
+    padding-right:4px;
+  }
+  .time-sign-plus{
     background-color:#000000;
     color:#ffffff;
     font-size:6px;

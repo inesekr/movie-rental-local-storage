@@ -1,64 +1,135 @@
-const showRegisterForm = document.getElementById("show-register-form");
+var showRegisterForm = document.getElementById("show-register-form");
 
-const registerForm = document.getElementById("register");
+var registerForm = document.getElementById("register");
 
 showRegisterForm.addEventListener("click", function(){
   registerForm.style.display = "block";
   showRegisterForm.style.display= "none";
 })
 
-const signInBtn = document.getElementById("signInBtn");
-signInBtn.addEventListener("click", function(){
-  // window.location.href = "home.html"
- var emailInput = document.getElementById("emailInput");
-  var passwordInput = document.getElementById("passwordInput");
-  // var regEmail= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+function loginValidation(){
+
+var email= document.getElementById("email");
+var password = document.getElementById("password");
+
+// var pattern= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
   
-  //this not allowing second @ bedore @gmail.com, but allowing anything else
-  // var regEmail= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//this not allowing second @ before @gmail.com, but allowing anything else?
+// var regEmail= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-// var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-var pattern = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/"; //this is better?
-  if (emailInput.value =="" ){
-  alert ("Please enter your email address!");
-  emailInput.focus();
-  // return false;
+// var pattern = "/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/";
+
+//this is better?
+// var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; 
+
+var regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
+
+  if (email.value =="" ){
+    alert ("Please enter your email address!");
+    email.focus();
+    return false;
   }
-
-// else if( !emailInput.value.match(pattern)){
-//   alert ("Please enter your email address in correct format!");
-//     emailInput.focus();
-// }
-
-else if( !emailInput.value){
-  alert ("Please enter your email address in correct format!");
-    emailInput.focus();
-}
-
-  // else if( !regEmail.test(emailInput.value)){
-  //   alert ("Please enter your email address in correct format!");
-  //   emailInput.focus();
-  //   return false;
-  // }
-
-  // else if (emailInput.value !="" && regEmail.test(emailInput.value) ){
-    else if (emailInput.value !="" && emailInput.value.match(pattern) ){
-      // else if (emailInput.value !="" && emailInput.value ){
-    if(passwordInput.value == ""){
+  if( !regexp.test(email.value)){
+    alert ("Please enter your email address in correct format!");
+    email.focus();
+    return false;
+    }
+  if(password.value == ""){
       alert ("Please enter your password!");
-      passwordInput.focus();
-      // return false;
+      password.focus();
+      return false;
     }
-  
-    else if(passwordInput.value.length<8){
+  if(password.value.length<8){
+    console.log(password.value);
+    console.log(password.value.length);
+    console.log(password.value.length<8);
       alert ("Password must be at least 8 characters long!");
-      passwordInput.focus();
-      // return false;
+      password.focus();
+      return false;
     }
+  else
+    {
+      window.location.href = "home.html";
+    }
+};
 
+function registerValidation(){
+  var nameReg= document.getElementById("nameReg");
+  var surname= document.getElementById("surname");
+  var emailReg= document.getElementById("emailReg");
+  var emailRepeat= document.getElementById("emailRepeat");
+  var passwordReg = document.getElementById("passwordReg");
+  var passwordRepeat = document.getElementById("passwordRepeat");
+
+  var regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
+  
+  //allows only letters, AND spaces:
+  // var regexpLetters = /^[A-Za-z ]*$/; 
+
+  var regexpLetters = /^[A-Za-z]*$/; //allows only letters, NO spaces
+
+  if(nameReg.value==""){
+    alert ("Please enter your name!");
+    nameReg.focus();
+    return false;
   }
-  else if (emailInput.value !="" && emailInput.value.match(pattern) && passwordInput.value != "" && passwordInput.value.length>=8){
-    window.location.href = "home.html"
+  if(nameReg.value.length < 2){
+    alert ("Name must be at least 2 characters long!");
+    nameReg.focus();
+    return false;
   }
- 
-})
+  if( !regexpLetters.test(nameReg.value)){
+    // if( !nameReg.value.match(regexpLetters))
+    alert ("Name must include letters only!");
+    nameReg.focus();
+    return false;
+  }
+  if(surname.value==""){
+    alert ("Please enter your surname!");
+    surname.focus();
+    return false;
+  }
+  if(surname.value.length<2){
+    alert ("Surname must be at least 2 characters long!");
+    surname.focus();
+    return false;
+  }
+  if( !regexpLetters.test(surname.value)){
+    alert ("Surname must include letters only!");
+    surname.focus();
+    return false;
+  }
+  if (emailReg.value =="" ){
+    alert ("Please enter your email address!");
+    emailReg.focus();
+    return false;
+  }
+  else if( !regexp.test(emailReg.value)){
+    alert ("Please enter your email address in correct format!");
+    emailReg.focus();
+    return false;
+  }
+  if(emailReg.value!= emailRepeat.value){
+    alert("E-mail addresses don't match!")
+    emailRepeat.focus();
+    return false;
+  }
+  if(passwordReg.value == ""){
+      alert ("Please enter your password!");
+      passwordReg.focus();
+      return false;
+  }
+  if(passwordReg.value.length<8){
+      alert ("Password must be at least 8 characters long!");
+      passwordReg.focus();
+      return false;
+  }
+  if(passwordReg.value != passwordRepeat.value){
+    alert("Passwords don't match");
+    passwordRepeat.focus();
+    return false;
+  }
+  else {
+      window.location.href = "home.html";
+  }
+};
