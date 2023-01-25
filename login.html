@@ -8,6 +8,7 @@
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <link rel="stylesheet" href="styles/general.css"> 
   <link rel="stylesheet" href="styles/login.css">
+  <script src="scripts/login.js" type="text/javascript" defer></script>
 </head>
 <body>
   <header>
@@ -15,25 +16,26 @@
   </header>
   <main>
     <!-- <section class="login"> -->
-      <form action="home.html" method="post" onsubmit="return loginValidation()" id="login" class="login">
+    <form action="" method="post" onsubmit="return loginValidation()" id="login" class="login">
         
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="name@example.com">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="name@example.com">
     
-        <label for="password">Password</label>
-        <input id="password" name="password" class="placeholder" type="text" placeholder="password">
+      <label for="password">Password</label>
+      <input id="password" name="password" class="placeholder" type="text" placeholder="password">
      
       <!-- <a href="home.html" style="text-decoration:none">
         <button class="button" id="signInBtn">Sign in</button>
       </a> -->
 
       <!-- <input type="submit" value="Sign in" id="signInBtn" class="button"> -->
-      <button class="button" id="signInBtn" type="submit">Sign in</button>
+      <button class="button" id="signInBtn" type="button">Sign in</button>
     </form>
     <!-- </section> -->
 
     <!-- <section class="register" id="register"> -->
-      <form action="home.html" method="post" onsubmit="return registerValidation()" class="register" id="register">
+      <form action="login.html" method="post" class="register" id="register">
+        <!-- onsubmit="return registerValidation()" -->
      
         <label for="nameReg">Name</label>
         <input id="nameReg" name="nameReg" minlength="2" type="text" placeholder="name" required>
@@ -57,12 +59,13 @@
         <button class="button">Register</button>
       </a> -->
 
-      <button class="button" id="registerBtn" type="submit">Register</button>
+      <button class="button" id="registerBtn" type="button" >Register</button>
 
     </form>
     <!-- </section> -->
 
-    <button id="show-register-form" >Register</button>
+    <button id="show-register-form"  type="button">Register</button>
+    <!-- onclick="return showForm()" -->
 
     <!-- <a href="" style="text-decoration:none">
       <button id="show-register-form" >Register</button>
@@ -74,6 +77,6 @@
   <div class="footer-right">2022/2023</div>
 
 </footer>
-<script src="scripts/login.js" type="text/javascript"></script>
+<!-- <script src="scripts/login.js" type="text/javascript"></script> -->
 </body>
 </html>

@@ -75,7 +75,7 @@ nav{
     width:40px;
   }
  
-  .time{
+  #time{
     background-color:#ffffff;
     padding-left:8px;
     padding-right:8px;
@@ -84,7 +84,7 @@ nav{
     padding-bottom:2px;
   }
 
-  .time-sign-minus{
+  #time-sign-minus{
     background-color:#000000;
     color:#ffffff;
     font-size:6px;
@@ -94,7 +94,7 @@ nav{
     padding-left:4px;
     padding-right:4px;
   }
-  .time-sign-plus{
+  #time-sign-plus{
     background-color:#000000;
     color:#ffffff;
     font-size:6px;

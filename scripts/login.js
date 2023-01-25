@@ -1,16 +1,45 @@
-var showRegisterForm = document.getElementById("show-register-form");
 
-var registerForm = document.getElementById("register");
 
-showRegisterForm.addEventListener("click", function(){
-  registerForm.style.display = "block";
-  showRegisterForm.style.display= "none";
+window.addEventListener("load", function(){
+
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+
+
+  if (currentUser){
+    alert("You are already logged in");
+    window.location.href = "home.html";
+  }
+
+  else{
+
+
+document.getElementById("show-register-form").addEventListener("click", (event)=>{
+  let registerForm = document.getElementById("register");
+    registerForm.style.display = "block";
+    document.getElementById("show-register-form").style.display= "none";
 })
 
-function loginValidation(){
+// function showForm(){
+//   let registerForm = document.getElementById("register");
+//   registerForm.style.display = "block";
+//   document.getElementById("show-register-form").style.display= "none";
+// }
 
-var email= document.getElementById("email");
-var password = document.getElementById("password");
+
+document.getElementById("registerBtn").addEventListener("click", (event)=>{
+  // event.preventDefault();
+  registerValidation();
+})
+
+document.getElementById("signInBtn").addEventListener("click", (event)=>{
+  validateLogIn();
+})
+
+function validateLogIn(){
+
+let email= document.getElementById("email");
+let password = document.getElementById("password");
 
 // var pattern= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
   
@@ -22,7 +51,7 @@ var password = document.getElementById("password");
 //this is better?
 // var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; 
 
-var regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
+let regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
 
   if (email.value =="" ){
     alert ("Please enter your email address!");
@@ -47,26 +76,50 @@ var regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
       password.focus();
       return false;
     }
-  else
-    {
-      window.location.href = "home.html";
-    }
-};
+  else {
+      console.log("no errors found");
+      console.log(usersArr);
+      console.log("check array");
+ 
+      console.log(email.value);
+      console.log("check");
+      let thisUser = usersArr.find(({userEmail, userPassword})=> userEmail===email.value && userPassword===password.value);
+  
+      console.log(thisUser);
+      console.log("check");
+
+      if(thisUser){
+           console.log("Success");
+           
+      localStorage.setItem("currentUser", JSON.stringify(thisUser));
+
+        window.location.href = "home.html";
+         }
+         else{
+          console.log("User not found!");
+          alert("User not found!");
+            window.location.href = "login.html";
+         }
+      }
+  };
+
+
 
 function registerValidation(){
-  var nameReg= document.getElementById("nameReg");
-  var surname= document.getElementById("surname");
-  var emailReg= document.getElementById("emailReg");
-  var emailRepeat= document.getElementById("emailRepeat");
-  var passwordReg = document.getElementById("passwordReg");
-  var passwordRepeat = document.getElementById("passwordRepeat");
 
-  var regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
+ let nameReg= document.getElementById("nameReg");
+  let surname= document.getElementById("surname");
+  let emailReg= document.getElementById("emailReg");
+  let emailRepeat= document.getElementById("emailRepeat");
+  let passwordReg = document.getElementById("passwordReg");
+  let passwordRepeat = document.getElementById("passwordRepeat");
+
+  let regexp = /\S+@\S+\.\S+/; //this checks for format anything@anything.anything
   
   //allows only letters, AND spaces:
   // var regexpLetters = /^[A-Za-z ]*$/; 
 
-  var regexpLetters = /^[A-Za-z]*$/; //allows only letters, NO spaces
+  let regexpLetters = /^[A-Za-z]*$/; //allows only letters, NO spaces
 
   if(nameReg.value==""){
     alert ("Please enter your name!");
@@ -104,7 +157,7 @@ function registerValidation(){
     emailReg.focus();
     return false;
   }
-  else if( !regexp.test(emailReg.value)){
+  if( !regexp.test(emailReg.value)){
     alert ("Please enter your email address in correct format!");
     emailReg.focus();
     return false;
@@ -130,6 +183,30 @@ function registerValidation(){
     return false;
   }
   else {
-      window.location.href = "home.html";
+    registerUser();
   }
 };
+
+
+let usersArr = JSON.parse(localStorage.getItem("users")) || [];
+function registerUser(){
+
+      console.log(usersArr);
+   
+      let userName = nameReg.value;
+      let userSurname = surname.value;
+      let userEmail = emailReg.value;
+      let userPassword = passwordReg.value;
+
+      //need to create new user object
+      let user = {userName, userSurname, userEmail, userPassword};
+      // console.log(user);
+      
+      usersArr.push(user);
+      // console.log(usersArr);
+      localStorage.setItem("users", JSON.stringify(usersArr));
+      alert("You have succesfully registered, can sign in now");
+         window.location.href = "login.html";
+}
+
+  }})
